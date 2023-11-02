@@ -40,7 +40,7 @@ class GameActivity : AppCompatActivity() {
 
         initGameElements()
 
-        // Добавлен обработчик событий для кнопки "Проверить"
+
         findViewById<Button>(R.id.HeyButton).setOnClickListener {
             val intent = Intent(this, ScoreActivity::class.java).apply {
                 putExtra("SCORE", score)
@@ -50,7 +50,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun initGameElements() {
-        // Инициализация часов
+
         val cityClockIds = listOf(
             Pair(R.id.LosAngelesClock, "LosAngeles"),
             Pair(R.id.londonClock, "London"),
@@ -75,7 +75,7 @@ class GameActivity : AppCompatActivity() {
             }
         }
 
-        // Инициализация кнопок для городов
+
         val cityButtonIds = listOf(
             Pair(R.id.LosAngelesButton, "LosAngeles"),
             Pair(R.id.londonButton, "London"),
@@ -103,17 +103,17 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun selectClock(clock: ImageView) {
-        // Отмена выделения предыдущих часов, если таковые имеются
+
         selectedClock?.setBackgroundColor(
             ContextCompat.getColor(
                 this,
                 R.color.colorSelected
             )
-        ) // серый
+        )
 
         selectedClock = clock
 
-        // Установка фона для выбранных часов
+
         clock.setBackgroundColor(ContextCompat.getColor(this, R.color.colorSelected))
     }
 
@@ -125,17 +125,17 @@ class GameActivity : AppCompatActivity() {
         )?.constantState
 
         if (isMatch) {
-            // Если соответствие правильное, меняем цвет на зеленый.
+
             clock.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCorrect))
             selectedCityButton?.setBackgroundColor(ContextCompat.getColor(this, R.color.colorCorrect))
             score++
         } else {
-            // Если соответствие неправильное, меняем цвет на красный.
+
             clock.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWrong))
             selectedCityButton?.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWrong))
         }
 
-        // Сброс выбора для следующего раунда и блокировка элементов
+
         resetSelection()
         clock.isClickable = false
         selectedCityButton?.isClickable = false

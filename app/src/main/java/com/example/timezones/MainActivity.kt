@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val startGameButton: Button = findViewById(R.id.startGameButton) // Убедитесь, что у вас есть кнопка с этим ID в вашем XML
+        val startGameButton: Button = findViewById(R.id.startGameButton)
 
         startGameButton.setOnClickListener {
             val intent = Intent(this, PreGameActivity::class.java)
